@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#container01{
+				position: relative;
+				margin: 0 auto;
+				width: 387px;
+				height: 389px;				
+				background: url(img/b5.png);
+				overflow: hidden;
+			}
+			#ul1{
+				position:absolute;
+				bottom: 20px;
+				left: 100px;
+			}
+			#ul1 li{
+				width: 10px;
+				height: 10px;
+				background: red;
+				margin-left: 20px;
+				list-style: none;
+				float: left;
+				border-radius: 10px;
+			}
+			#left01{
+				position: absolute;
+				top: 200px;
+				left: 0px;
+				width: 20px;
+				height: 50px;
+				background: rgba(0,0,0,0.6);
+			}
+			#right01{
+				position: absolute;
+				top: 200px;
+				right: 0px;
+				width: 20px;
+				height: 50px;
+				background: rgba(0,0,0,0.6);
+			}
+		</style>
+	</head>
+	<body>
+		<div id="container01">
+			<a href="#" id="left01"></a>
+			<a href="#" id="right01"></a>
+			<ul id="ul1">
+				<li>1</li>
+				<li>2</li>
+				<li>3</li>
+				<li>4</li>
+			</ul>
+		</div>
+		<script type="text/javascript">
+			var str1=["url(img/b5.png)","url(img/b6.png)","url(img/a1.png)","url(img/a2.png)"];
+			var str1_len=str1.length;
+			var oUl1=document.getElementById("ul1");
+			var oLi1=oUl1.getElementsByTagName('li');
+			var aLeft=document.getElementById('left01');
+			var aright=document.getElementById('right01');
+			aLeft.onclick=lunbor;
+			aright.onclick=lunbol;
+			var oContainer01=document.getElementById('container01');
+			var timer=setInterval('lunbor()',2000);
+			var count=0;
+			function lunbor(){
+				count++;
+				if(count>str1_len-1){
+					count=0;
+				}
+				oContainer01.style.background=str1[count];
+				//clearInterval(timer);
+				//timer=setInterval
+			}
+			function lunbol(){
+				count--;
+				if(count<0){
+					count=str1_len-1;
+				}
+				oContainer01.style.background=str1[count];
+			}
+		</script>
+		
+		
+		<!--<script>
+			var time;
+			var str=["url(img/cw01.png)","url(img/cw02.png)","url(img/cw03.png)","url(img/cw04.png)","url(img/cw05.png)"];
+			window.onload=function(){
+				var a=document.getElementById("big");
+				document.getElementById("left").onclick=lunbol;
+				document.getElementById("right").onclick=lunbor;				
+				time = setInterval("lunbor()",2000);
+			}
+			var count=0;
+			function lunbor(){								
+				count++;
+				if(count>str.length-1){
+					count=0;
+				}
+				/*document.getElementById("big").style.background=str[count];*/
+				change(count);
+			}	
+			function lunbol(){
+								
+				count--;
+				if(count<0){
+					count=str.length-1;
+				}
+				/*document.getElementById("big").style.background=str[count];*/
+				change(count);
+			}
+			function change(num){
+				clearInterval(time);
+				var liebiao =document.getElementsByName("lilist");
+				/*alert(liebiao.length) ;*/				
+				/*for(var a=0;a<liebiao.lenght;a++){
+					if(num==a)
+					liebiao[a].className="active";
+				}*/
+				for(var i=0;i<liebiao.length;i++){
+					
+					if(num==i){
+						count=num;
+						liebiao[i].className="active";
+						document.getElementById("big").style.background=str[num];
+					}else{
+						liebiao[i].className="";
+					}					
+				}
+				time = setInterval("lunbor()",2000);
+			}			
+		</script>-->
+	</body>
+</html>
+
+		

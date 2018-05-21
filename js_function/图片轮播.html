@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			div{
+				position: relative;
+				top: 50px;
+				margin: auto;
+				width: 1226px;
+				height: 460px;	
+				border: 1px solid ;	
+				background: url(img/pic1.jpg);	
+				transition: 1s;	
+			
+			}
+			#left{
+				position: absolute;
+				top: 200px;
+				left: 0px;
+				width: 20px;
+				height: 50px;
+				background: rgba(0,0,0,0.6);
+			}
+			#right{
+				position: absolute;
+				top: 200px;
+				right: 0px;
+				width: 20px;
+				height: 50px;
+				background: rgba(0,0,0,0.6);
+			}
+			ul{
+				
+				position: absolute;
+				right:200px;
+				bottom: 40px;
+			/*	border: 1px solid black;*/
+				width: 140px;
+				height: 20px;				
+			}
+			li{				
+				list-style: none;
+				border-radius: 10px;
+				margin-left: 5px;
+				width: 20px;
+				height: 20px;
+				background: gray;
+				float: left;
+				cursor: pointer;
+			}
+			li.active{
+				background: red;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="big">			
+			<a  href="javascript:;" id="left"></a>
+			<a  href="javascript:;" id="right"></a>
+			<ul id="table">
+				<li class="active" onclick="change(0)"></li>
+				<li onclick="change(1)"></li>
+				<li onclick="change(2)"></li>
+				<li onclick="change(3)"></li>
+				<li onclick="change(4)"></li>
+			</ul>
+	</div>
+	<!--<div id="container01">			
+			<a  href="javascript:;" id="left"></a>
+			<a  href="javascript:;" id="right"></a>
+			<ul id="table">
+				<li class="active" onclick="change(0)"></li>
+				<li onclick="change(1)"></li>
+				<li onclick="change(2)"></li>
+				<li onclick="change(3)"></li>
+				<li onclick="change(4)"></li>
+			</ul>
+	</div>-->
+		<script>
+			var time;
+			var str=["url(img/pic1.jpg)","url(img/pic2.jpg)","url(img/pic3.jpg)","url(img/pic4.jpg)","url(img/pic5.jpg)"];
+			window.onload=function(){
+				function get_dom(contain,left,right){
+					var a=document.getElementById("big");
+				document.getElementById("left").onclick=lunbol;
+				document.getElementById("right").onclick=lunbor;				
+				time = setInterval("lunbor()",2000);
+				}
+				get_dom(big,left,right);
+			}
+			var count=0;
+			function lunbor(){								
+				count++;
+				if(count>str.length-1){
+					count=0;
+				}
+				/*document.getElementById("big").style.background=str[count];*/
+				change(count);
+			}	
+			function lunbol(){
+								
+				count--;
+				if(count<0){
+					count=str.length-1;
+				}
+				/*document.getElementById("big").style.background=str[count];*/
+				change(count);
+			}
+			function change(num){
+				clearInterval(time);
+				var liebiao =document.getElementsByTagName("li");
+				/*alert(liebiao.length) ;*/				
+				/*for(var a=0;a<liebiao.lenght;a++){
+					if(num==a)
+					liebiao[a].className="active";
+				}*/
+				for(var i=0;i<liebiao.length;i++){
+					
+					if(num==i){
+						count=num;
+						liebiao[i].className="active";
+						document.getElementById("big").style.background=str[num];
+					}else{
+						liebiao[i].className="";
+					}					
+				}
+				time = setInterval("lunbor()",2000);
+			}			
+		</script>		
+	</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript">
+			//工厂方式
+			//缺点
+			//没有new
+			//每个对象都有自己的一套方法---浪费空间
+			function CreatePerson(name,sex){	//构造函数
+				//1.原料
+				var obj=new Object();
+				//2.加工
+				this.nam=name;
+				this.se=sex;
+				this.showName=function(){
+					alert('我的名字叫：'+this.nam);
+				}
+				this.showSex=function(){
+					alert('我是'+this.se+'的');
+				}
+				//3.出厂
+				
+			}
+			var p1=new createPerson('bob','男');
+			var p2=new createPerson('leo','女');
+			/*p1.showName();
+			p1.showSex();
+			p2.showName();
+			p2.showSex();*/
+			alert(typeof )
+		</script>
+	</head>
+	<body>
+	</body>
+</html>
